@@ -9,10 +9,17 @@
     <title></title>
 </head>
 <body>
+    <script>
+        function onExportButtonClick(s, e) {
+            clientSpreadSheet.ApplyCellEdit();
+        }
+    </script>
     <form id="form1" runat="server">
     <div>
-        <dx:ASPxSpreadsheet ID="Spreadsheet" runat="server" WorkDirectory="~/App_Data/WorkDirectory"></dx:ASPxSpreadsheet>
-        <dx:ASPxButton ID="ExportButton" runat="server" Text="Export" OnClick="ExportButton_Click"></dx:ASPxButton>
+        <dx:ASPxSpreadsheet ID="Spreadsheet" runat="server" ClientInstanceName="clientSpreadSheet" WorkDirectory="~/App_Data/WorkDirectory"></dx:ASPxSpreadsheet>
+		<dx:ASPxButton ID="ExportButton" runat="server" Text="Export" OnClick="ExportButton_Click">
+			<ClientSideEvents Click="onExportButtonClick" />
+		</dx:ASPxButton>
     </div>
     </form>
 </body>
